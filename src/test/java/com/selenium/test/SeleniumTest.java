@@ -57,7 +57,30 @@ private WebDriver driver;
 	 
 	    Thread.sleep(500);
 	    
-		
+WebElement learnMoreButton = driver.findElement(By.xpath("//*[@id='ccl-refresh-homepage']/div/div/div/div/div/ccl-cruise-search/div[3]/ccl-view-result-container/div/ccl-view-result-grid/article[1]/ccl-view-result-grid-item/div/div[1]/ccl-view-result-grid-footer/div/div[2]/a"));
+	    
+	    learnMoreButton.click();
+	    
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    
+	    js.executeScript("window.scrollBy(0,650)", "");
+	    
+	    Thread.sleep(500);
+	    
+	    WebElement dayOne = driver.findElement(By.xpath("//*[@id='details']/div[3]/div[3]/div[1]/div/div/button"));
+	    
+	    dayOne.click();
+	    
+	    Thread.sleep(1000);
+	    
+	    WebElement bookingButton = driver.findElement(By.xpath("//*[@id='sm-booking-btn']/booking-button/div"));
+	    
+	    if	(bookingButton.isDisplayed()) {
+			
+			System.out.println("BookingButton es visible");
+			}else{
+			System.out.println("BookingButton failed");
+			}
 	}
 	
 	@After
